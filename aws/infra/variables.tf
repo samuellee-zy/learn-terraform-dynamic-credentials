@@ -6,8 +6,8 @@ variable "instance_type" {
 
 variable "tags" {
   description = "Tags for instances"
-  type        = map
-  default     = {}
+  type        = map(any)
+  default     = { "name" : "test" }
 }
 
 variable "aws_region" {
