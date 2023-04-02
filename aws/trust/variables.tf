@@ -17,13 +17,13 @@ variable "tfc_organization_name" {
 
 variable "tfc_project_name" {
   type        = string
-  default     = "Default Project"
+  default     = "Infrastructure Series"
   description = "The project under which a workspace will be created"
 }
 
 variable "tfc_workspace_name" {
   type        = string
-  default     = "dynamic-credentials-trust-relationship"
+  default     = "demo-s3-webapp"
   description = "The name of the workspace that you'd like to create and connect to AWS"
 }
 
@@ -31,4 +31,16 @@ variable "aws_region" {
   type        = string
   default     = "us-east-2"
   description = "AWS region for all resources"
+}
+
+variable "project_id" {
+  default = "prj-fa4HJwnmZKgreDPz"
+}
+
+variable "tfc-token-variable-set" {
+  default = "samuellee-dev tfc API token"
+}
+
+variable "hcp-packer-variable-set" {
+  default = "samuellee-dev HCP Client ID and Client Secret"
 }

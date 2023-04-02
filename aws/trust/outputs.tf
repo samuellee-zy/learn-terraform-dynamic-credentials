@@ -7,3 +7,7 @@ output "role_arn" {
   description = "ARN for trust relationship role"
   value       = aws_iam_role.tfc_role.arn
 }
+
+output "aws_dynamic_creds_varset_id" {
+  value = tfe_variable_set.aws-dynamic-creds.id
+}

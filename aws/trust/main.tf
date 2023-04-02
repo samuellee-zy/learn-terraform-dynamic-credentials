@@ -1,6 +1,5 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
-
 provider "aws" {
   region = var.aws_region
 }
@@ -53,7 +52,8 @@ resource "aws_iam_policy" "tfc_policy" {
    {
      "Effect": "Allow",
      "Action": [
-       "ec2:*"
+       "ec2:*",
+       "s3:*"
      ],
      "Resource": "*"
    }
@@ -66,3 +66,12 @@ resource "aws_iam_role_policy_attachment" "tfc_policy_attachment" {
   role       = aws_iam_role.tfc_role.name
   policy_arn = aws_iam_policy.tfc_policy.arn
 }
+
+resource "tfe_variable_set" "aws-dynamic-creds" {
+  name = "AWS Dynamic Varset"
+  description = "Variable set containing AWS dynamic varset"
+  organization = var.tfc_organization_name
+}
+
+# ,
+#        "s3:*"
